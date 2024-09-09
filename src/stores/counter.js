@@ -12,10 +12,14 @@ export const useCounterStore = defineStore("counter", {
   },
   actions: {
     checkIfEmpty(data){
-      for(let item in data){
-        if(!item) return false
-      }
-      return true
+      let res = true
+
+      data.forEach((item) => {
+        if(item == "")
+          res = false
+      })
+      
+      return res
     }
   },
 });

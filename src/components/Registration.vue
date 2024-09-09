@@ -42,7 +42,7 @@ const data = reactive({
 })
 
 async function register() {
-    if(!store.checkIfEmpty(data)) return
+    if(!store.checkIfEmpty([data.email, data.username, data.password])) return
 
     await axios.post(`${baseUrl}/api/auth/signup`, {
         "email":data.email,

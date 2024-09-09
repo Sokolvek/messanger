@@ -38,8 +38,8 @@ const data = reactive({
 
 
 async function auth() {
-    if (!store.checkIfEmpty(data)) return
-
+    if (!store.checkIfEmpty([data.email,data.password])) return
+    
     axios.post(`${baseUrl}/api/auth/signin`, {
         "email": data.email,
         "password": data.password,
