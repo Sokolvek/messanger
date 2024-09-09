@@ -1,5 +1,16 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue';
+import { useCounterStore } from './stores/counter';
+import { useRouter } from 'vue-router';
+
+const store = useCounterStore()
+const router = useRouter()
+
+onMounted(() => {
+    if(!store.jwt){
+        router.push("/auth")
+    }
+})
 </script>
 
 <template>
@@ -8,7 +19,6 @@ import HelloWorld from './components/HelloWorld.vue'
       <component :is="Component"/>
     </transition>
   </router-view>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
