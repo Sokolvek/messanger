@@ -1,16 +1,5 @@
 <script setup>
-import { onMounted } from 'vue';
-import { useCounterStore } from './stores/counter';
-import { useRouter } from 'vue-router';
 
-const store = useCounterStore()
-const router = useRouter()
-
-onMounted(() => {
-    if(!store.jwt){
-        router.push("/auth")
-    }
-})
 </script>
 
 <template>
