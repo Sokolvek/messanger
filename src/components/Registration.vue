@@ -1,24 +1,23 @@
 <template>
     <div class="auth">
-        register
-        <div>
+        <div class="input-wrapper">
             <label for="">Почта</label>
             <input type="text" v-model="data.email" placeholder="Введите E-mail">
         </div>
-        <div>
+        <div class="input-wrapper">
             <label for="">Никнейм</label>
             <input type="password" v-model="data.username" placeholder="Введите никнейм">
         </div>
-        <div>
+        <div class="input-wrapper">
             <label for="">Пароль</label>
             <input type="password" v-model="data.password" placeholder="Введите пароль">
         </div>
-        <div>
+        <div class="input-wrapper-last">
             <div>
                 <input type="checkbox" v-model="data.rememberMe">
                 <label for="">Запомнить меня</label>
             </div>
-            <p>Забыли пароль?</p>
+            <p class="forgot-pass">Забыли пароль?</p>
         </div>
         <button @click="register">Войти</button>
     </div>
@@ -60,3 +59,8 @@ async function register() {
 }
 
 </script>
+
+<style >
+
+
+</style>
