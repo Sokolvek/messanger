@@ -1,20 +1,19 @@
 <template>
     <div class="auth">
-        auth
-        <div>
+        <div class="input-wrapper">
             <label for="">Почта</label>
             <input type="text" v-model="data.email" placeholder="Введите E-mail">
         </div>
-        <div>
+        <div class="input-wrapper">
             <label for="">Пароль</label>
             <input type="password" v-model="data.password" placeholder="Введите пароль">
         </div>
-        <div>
+        <div class="input-wrapper-last">
             <div>
                 <input type="checkbox" v-model="data.rememberMe">
                 <label for="">Запомнить меня</label>
             </div>
-            <p>Забыли пароль?</p>
+            <p class="forgot-pass">Забыли пароль?</p>
         </div>
         <button @click="auth">Войти</button>
     </div>
@@ -60,3 +59,43 @@ async function auth() {
 
 onMounted(() => console.log(baseUrl))
 </script>
+
+<style >
+
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+input{
+    padding: 20px 10px;
+    border: 1px solid #BCBCBC;
+    border-radius: 16px;
+}
+
+.forgot-pass{
+    color: #977F00;
+}
+
+button{
+    background: #F3D431;
+    border: none;
+    padding: 15px 0;
+    border-radius: 20px;
+}
+
+.input-wrapper-last{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+</style>

@@ -74,15 +74,15 @@ const currentComponent = ref(Auth)
 
             .banner-container {
                 box-sizing: border-box;
-   display: flex;
-   flex: 0 0 auto;
-   flex-direction: column;
-   align-items: center;
-   justify-content: flex-start;
-   width: 810px;
-   padding-top: 124px;
-   padding-right: 15px;
-   padding-bottom: 360px;
+                display: flex;
+                flex: 0 0 auto;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                width: 810px;
+                padding-top: 124px;
+                padding-right: 15px;
+                padding-bottom: 360px;
             }
         }
     }
