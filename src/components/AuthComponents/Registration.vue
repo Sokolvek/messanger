@@ -3,7 +3,7 @@
         <div class="form-layout-container">
             <div class="email-input-container1">
                 <p class="email-input-title-style">Почта</p>
-                <input class="email-input-container" type="text" v-model="data.email" placeholder=" Введите E-mail">
+                <input class="email-input-container" type="text" v-model="data.email" placeholder="Введите E-mail">
             </div>
             <div class="nickname-input-container">
                 <p class="email-input-title-style">Никнейм</p>
@@ -11,9 +11,9 @@
             </div>
             <div class="password-input-container">
                 <p class="email-input-title-style">Пароль</p>
-                <input class="email-input-container1" src="../assets/password-eye.svg" type="password" v-model="data.password"
-                    placeholder=" Введите пароль">
-                <img src="../assets/password-eye.svg" class="password-input-icon" />
+                <input class="email-input-container1" src="../assets/password-eye.svg" type="password"
+                    v-model="data.password" placeholder=" Введите пароль">
+                <img src="../../assets/password-eye.svg" class="password-input-icon" />
             </div>
             <div class="main-content-container">
                 <div class="email-input-container1">
@@ -51,7 +51,7 @@
 <script setup>
 import axios from 'axios';
 import { reactive } from 'vue';
-import { useCounterStore } from '../stores/counter';
+import { useCounterStore } from '../../stores/counter';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
@@ -115,10 +115,11 @@ async function register() {
                 border: 1px solid #bcbcbc;
                 border-radius: 16px;
                 box-shadow: 2px 2px 4px rgba(23, 23, 23, 0.25);
+                flex: 0 0 auto;
                 padding: 0;
+                margin-left: 0;
                 padding-right: 8px;
                 padding-left: 8px;
-                margin: 0;
                 font: 400 20px "Roboto Slab", serif;
                 color: #1f1f18;
             }
@@ -155,8 +156,10 @@ async function register() {
                 flex: 0 0 auto;
                 padding: 0;
                 margin-left: 0;
+                padding-right: 8px;
+                padding-left: 8px;
                 font: 400 20px "Roboto Slab", serif;
-                color: #bcbcbc;
+                color: #1f1f18;
 
             }
 
@@ -192,8 +195,10 @@ async function register() {
                 flex: 0 0 auto;
                 padding: 0;
                 margin-left: 0;
+                padding-right: 8px;
+                padding-left: 8px;
                 font: 400 20px "Roboto Slab", serif;
-                color: #bcbcbc;
+                color: #1f1f18;
 
             }
 
@@ -248,8 +253,6 @@ async function register() {
                     }
                 }
             }
-
-
 
             .remember-me-section {
                 display: flex;

@@ -9,13 +9,22 @@
                 <div class="form-container">
                     <div class="auth-form-container">
                         <div class="auth-form-tab">
-                            <label class="login-title" @click="currentComponent = Auth">Войти</label>
-                            <label @click="currentComponent = Registration">Регистрация</label>
-                            <KeepAlive>
-                                <component :is="currentComponent"></component>
-                            </KeepAlive>
+                            <label
+                                class="login-title"
+                                :class="{ active: componentName == 'Auth' }"
+                                @click="switchComponent('Auth')">
+                                Войти
+                            </label>
+                            <label
+                                class="login-title"
+                                :class="{ active: componentName == 'Registration' }"
+                                @click="switchComponent('Registration')">
+                                Регистрация
+                            </label>
                         </div>
-
+                        <KeepAlive>
+                            <component :is="currentComponent"></component>
+                        </KeepAlive>
                     </div>
                 </div>
             </div>
@@ -25,10 +34,20 @@
 
 <script setup>
 import { ref } from 'vue';
-import Auth from '../components/Auth.vue';
-import Registration from '../components/Registration.vue';
-import Banner from '../components/Banner.vue';
-const currentComponent = ref(Auth)
+import Auth from '../components/AuthComponents/Auth.vue';
+import Registration from '../components/AuthComponents/Registration.vue';
+import Banner from '../components/AuthComponents/Banner.vue';
+var componentName = 'Auth';
+const currentComponent = ref(componentName);
+
+function switchComponent(componentName) {
+    if (componentName === 'Auth') {
+        currentComponent.value = Auth;
+    } else if (componentName === 'Registration') {
+        currentComponent.value = Registration;
+    }
+    this.componentName = componentName;
+}
 </script>
 
 <style scoped lang="scss">
@@ -57,18 +76,36 @@ const currentComponent = ref(Auth)
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
                     .auth-form-tab {
-                        margin-bottom: 20px;
-                        cursor: pointer;
-                        font: 400 20px "Roboto Slab", serif;
+                        display: flex;
+                        flex: 0 0 auto;
+                        flex-direction: row;
+                        align-items: center;
+                        align-self: center;
+                        justify-content: flex-start;
+                        margin-left: 34%;
+
+                        .login-title {
+                            box-sizing: border-box;
+                            display: block;
+                            position: relative;
+                            flex: 0 0 auto;
+                            width: 158px;
+                            min-width: 158px;
+                            height: 40px;
+                            font: 400 20px "Roboto Slab", serif;
+                            color: #1f1f18;
+                            cursor: pointer;
+                            border: none;
+                            border-radius: 13px;
+                            background: rgba(255,255,255,0);
+                        }
+
+                        .login-title.active {
+                            background: rgba(243, 212, 49, 0.6);
+                        }
                     }
 
-                    .login-title {
-                        flex: 0 0 auto;
-                        padding: 0;
-                        margin: 20px;
-                        font: 400 20px "Roboto Slab", serif;
-                        color: #1f1f18;
-                    }
+
                 }
             }
 

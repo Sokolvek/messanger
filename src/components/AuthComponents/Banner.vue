@@ -6,9 +6,9 @@
         <span class="career-boost-title career-boost-text-style1 career-boost-serif">
             GROSSMANN
         </span>
-        <p class="career-boost-description">Пространство для твоих достижений</p>
+    <p class="career-boost-description">Пространство для твоих достижений</p>
     </p>
-    
+
 </template>
 
 <script>
